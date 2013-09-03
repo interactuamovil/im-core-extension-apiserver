@@ -1,1 +1,33 @@
-target/
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse/Netbeans #
+.classpath
+.project
+.settings
+eclipsebin
+
+bin
+gen
+build
+out
+lib
+
+# Maven #
+target
+pom.xml.*
+release.properties
+
+# IntelliJ #
+.idea
+*.iml
+classes
+
+obj
+
+# Mac #
+.DS_Store
