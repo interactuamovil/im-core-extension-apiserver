@@ -13,15 +13,25 @@ import org.simpleframework.http.ResponseWrapper;
  */
 public class ApiResponse extends ResponseWrapper {
     
-    ApiResponseDescriptor responseDescriptor;
-    JsonObject error;
+
+    private Integer apiStatus;
     
     public ApiResponse(Response response) {
         super(response);
     }
-    
-    public void setResponseDescriptor(ApiResponseDescriptor descriptor) {
-        this.responseDescriptor = descriptor;
+
+    /**
+     * @return the apiStatus
+     */
+    public Integer getApiStatus() {
+        return apiStatus;
+    }
+
+    /**
+     * @param apiStatus the apiStatus to set
+     */
+    public void setApiStatus(Integer apiStatus) {
+        this.apiStatus = apiStatus;
     }
     
     
