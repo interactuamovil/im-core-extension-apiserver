@@ -43,28 +43,33 @@ public abstract class ApiContainer<C extends ApiContext> implements Container {
     
     
     protected void setResponse(ApiResponse rspns, String responseText) {
-        setResponse(rspns, responseText, Status.OK);
+        setResponse(rspns, responseText, Status.OK, 0);
     }
     
     protected void setResponse(ApiResponse rspns, JsonObject jsonResponse) {
-        setResponse(rspns, jsonResponse, Status.OK);
+        setResponse(rspns, jsonResponse, Status.OK, 0);
     }
     
     protected void setResponse(ApiResponse rspns, JsonObject jsonResponse, Status status) {
+        setResponse(rspns, jsonResponse, status, 0);
+    }
+    
+    protected void setResponse(ApiResponse rspns, JsonObject jsonResponse, Status status, Integer apiStatus) {
         String message;
         try {
             message = jsonResponse.toJson();
         } catch (IOException ex) {
             message = "{ \"code\":\"503\", \"error\":\"Error interno.\"}";
         }
-        setResponse(rspns, message, status);
+        setResponse(rspns, message, status, apiStatus);
     }
     
-    protected void setResponse(ApiResponse rspns, String responseText, Status status) {
+    protected void setResponse(ApiResponse rspns, String responseText, Status status, Integer apiStatus) {
         PrintStream body = null;
         try {
             rspns.setCode(status.getCode());
             rspns.setDescription(status.getDescription());
+            rspns.setApiStatus(apiStatus);
             rspns.setValue("Content-Type", "application/json");
             body = rspns.getPrintStream();
             body.print(responseText);

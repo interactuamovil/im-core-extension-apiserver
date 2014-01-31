@@ -12,7 +12,7 @@ public class DefaultApiContext implements ApiContext {
     
     //private boolean needsAuthentication = Boolean.FALSE;
     private boolean authenticated = Boolean.FALSE;
-    private String apiType = "NONE";
+    private String apiType = "HTTP";
 
     public DefaultApiContext() {
     }
