@@ -33,7 +33,7 @@
     </dependency>
   </dependencies>
   
-  <distributionManagement>
+    <distributionManagement>
         <repository>
             <id>archiva.internal</id>
             <name>Internal Release Repository</name>
@@ -47,9 +47,9 @@
     </distributionManagement>
 
     <scm>
-        <url>scm:git:git@github.com:interactuamovil/contactosms.git</url>
-        <connection>scm:git:git@github.com:interactuamovil/contactosms.git</connection>
-        <developerConnection>scm:git:git@github.com:interactuamovil/contactosms.git</developerConnection>
+        <url>scm:git:git@github.com:interactuamovil/im-core-extension-apiserver.git</url>
+        <connection>scm:git:git@github.com:interactuamovil/im-core-extension-apiserver.git</connection>
+        <developerConnection>scm:git:git@github.com:interactuamovil/im-core-extension-apiserver.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     
