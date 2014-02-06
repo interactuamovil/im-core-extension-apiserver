@@ -32,4 +32,38 @@
       <version>5.1.5</version>
     </dependency>
   </dependencies>
+  
+  <distributionManagement>
+        <repository>
+            <id>archiva.internal</id>
+            <name>Internal Release Repository</name>
+            <url>http://repo1.im:7070/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>archiva.snapshots</id>
+            <name>Internal Snapshot Repository</name>
+            <url>http://repo1.im:7070/archiva/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <url>scm:git:git@github.com:interactuamovil/contactosms.git</url>
+        <connection>scm:git:git@github.com:interactuamovil/contactosms.git</connection>
+        <developerConnection>scm:git:git@github.com:interactuamovil/contactosms.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    
+    <build>
+        <plugins>            
+            
+            <!-- plugin de maven release -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+            
+        </plugins>
+    </build>
+    
 </project>
