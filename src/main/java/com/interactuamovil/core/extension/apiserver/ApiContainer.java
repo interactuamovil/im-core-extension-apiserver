@@ -46,19 +46,19 @@ public abstract class ApiContainer<C extends ApiContext> implements Container {
         setResponse(rspns, responseText, Status.OK, 0);
     }
     
-    protected void setResponse(ApiResponse rspns, JsonObject jsonResponse) {
+    protected void setResponse(ApiResponse rspns, Object jsonResponse) {
         setResponse(rspns, jsonResponse, Status.OK, 0);
     }
     
-    protected void setResponse(ApiResponse rspns, JsonObject jsonResponse, Status status) {
+    protected void setResponse(ApiResponse rspns, Object jsonResponse, Status status) {
         setResponse(rspns, jsonResponse, status, 0);
     }
     
-    protected void setResponse(ApiResponse rspns, JsonObject jsonResponse, Status status, Integer apiStatus) {
+    protected void setResponse(ApiResponse rspns, Object jsonResponse, Status status, Integer apiStatus) {
         String message;
         try {
-            message = jsonResponse.toJson();
-        } catch (IOException ex) {
+            message = jsonResponse.toString();
+        } catch (Exception ex) {
             message = "{ \"code\":\"503\", \"error\":\"Error interno.\"}";
         }
         setResponse(rspns, message, status, apiStatus);

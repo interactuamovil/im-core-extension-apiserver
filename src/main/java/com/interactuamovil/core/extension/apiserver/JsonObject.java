@@ -5,6 +5,7 @@
 package com.interactuamovil.core.extension.apiserver;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.interactuamovil.core.transport.ISerializer;
 import com.interactuamovil.core.transport.SerializerFactory;
 import java.io.IOException;
@@ -38,5 +39,9 @@ public abstract class JsonObject {
     public static <T> T fromJson(String json, Class<T> cls) throws IOException {
         return serializer.deserialize(json, cls);        
     }   
+    
+    public static <T> T fromJson(String json, TypeReference<T> t) throws IOException {
+        return serializer.deserialize(json, t);        
+    }
 
 }

@@ -59,6 +59,7 @@ public class Router<T> {
         // direct check
         logger.trace("check for direct route");
         if (directRoutes.containsKey(path)) {
+            matchedPath.append(path);
             handler = directRoutes.get(path);        
             logger.trace("direct route match: " + path);
         } else {
@@ -107,7 +108,7 @@ public class Router<T> {
         
         if (handler != null) {
             logger.trace("using handler for " + matchedPath.toString());
-            request.setMatchedPath(matchedPath.toString());            
+            request.setMatchedPath(matchedPath.toString());
         } else {
             logger.trace("no match");
         }

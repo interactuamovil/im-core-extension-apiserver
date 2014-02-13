@@ -4,6 +4,7 @@
  */
 package com.interactuamovil.core.extension.apiserver;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -24,7 +25,14 @@ public class JsonObjectCollection<T> extends JsonObject implements Collection<T>
         this.col = col;
     }
     
-    
+    @Override
+    public String toString() {
+        try {
+            return toJson();
+        } catch (IOException ex) {
+            return super.toString();
+        }
+    }
     
     @Override
     public int size() {
