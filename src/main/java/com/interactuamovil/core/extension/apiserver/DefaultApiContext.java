@@ -36,9 +36,17 @@ public class DefaultApiContext implements ApiContext {
     public void setAuthenticated(boolean authenticated) {
         this.authenticated = authenticated;
     }
+    
+    @Override
+    public void commit() {
+    }
+    
+    @Override
+    public void rollback() {
+    }
 
     @Override
-    public void close() {        
+    public void close() {
     }
 
     @Override

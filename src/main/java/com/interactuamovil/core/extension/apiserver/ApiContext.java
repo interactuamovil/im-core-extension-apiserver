@@ -15,5 +15,7 @@ public interface ApiContext {
     
     public String getApiType();
     
+    void commit();
+    void rollback();
     void close();
 }

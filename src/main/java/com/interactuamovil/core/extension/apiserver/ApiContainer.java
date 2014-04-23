@@ -116,6 +116,14 @@ public abstract class ApiContainer<C extends ApiContext> implements Container {
             setResponse(response, ErrorJsonResponse.create(503, "Error interno. Reintentar"), Status.INTERNAL_SERVER_ERROR);
         } finally {
             try {
+                context.commit();
+            } catch (Exception ex) {
+                logger.error("Error al confirmar la transaccion", ex);
+                context.rollback();
+                setResponse(response, ErrorJsonResponse.create(503, "Error interno. Reintentar"), Status.INTERNAL_SERVER_ERROR);
+            }
+            
+            try {
                 response.close();
                 apiLogger.registerResponse(response, context);
             } catch (IOException ex) {

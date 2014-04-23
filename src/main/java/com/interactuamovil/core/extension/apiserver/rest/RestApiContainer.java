@@ -147,6 +147,7 @@ public abstract class RestApiContainer<C extends RestApiContext> extends ApiCont
                 logger.error(ex);
             } catch (InvocationTargetException ex) {
                 logger.error(ex);
+                logger.error(ex.getTargetException());
             }
         } else {
             logger.trace("No handler method");
